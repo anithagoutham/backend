@@ -28,13 +28,14 @@ pipeline {
              
             }
         }
-        stage('Deploy') { 
-            when {
-                expression { env.GIT_BRANCH != "origin/main"}        
-            }
+        stage('Docker build') { 
+            
             steps {
                  
-                 sh 'echo this is deploy'
+                 sh """
+                 docker build -t joindevops/backend:${appVersion} .
+                 docker images
+                 """
             }
             }
 
