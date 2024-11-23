@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('test') {
             steps {
                 sh 'echo this is test'
                 sh 'env'
