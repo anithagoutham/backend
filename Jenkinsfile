@@ -22,20 +22,25 @@ pipeline {
                 }
             }
         }
-        stage('test') {
+        stage('install dependencies') {
             steps {
-                sh 'echo this is test'
-                sh 'env'
+                sh 'npm install'
+             
             }
         }
         stage('Deploy') { 
+            when {
+                expression { env.GIT_BRANCH != "origin/main"}        
+            }
             steps {
-               sh 'echo this is deploy'
+                 
+                 sh 'echo this is deploy'
+            }
             }
 
                     
-            }
-        }
+          }
+        
     
 
     post {
