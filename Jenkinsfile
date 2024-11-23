@@ -28,14 +28,15 @@ pipeline {
                 sh 'env'
             }
         }
-        stage('Deploy') { 
-            steps {
-               sh 'echo this is deploy'
+        stage('Deploy') {
+            when {
+                expression { env.GIT_BRANCH != "origin/main" }
+            }
 
                     
             }
         }
-    }
+    
 
     post {
         always{
