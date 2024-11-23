@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'AGENT-1'
+        label 'agent-1'
     }
     options{
         timeout(time: 30, unit: 'MINUTES')
@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
                 sh 'echo this is test'
                 sh 'env'
